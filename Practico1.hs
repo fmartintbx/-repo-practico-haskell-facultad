@@ -127,3 +127,20 @@ paresRecursivo (x:xs)
 paresFilter :: [Int] -> [Int]
 paresFilter xs = filter even xs
 
+
+{-10-}
+primIgualesA :: Eq a => a -> [a] -> [a]
+primIgualesA x [] = []
+primIgualesA x (y:ys)
+  | x == y    = y : primIgualesA x ys
+  | otherwise = []
+
+primIgualesA' :: Eq a => a -> [a] -> [a]
+primIgualesA' x = takeWhile (==x)
+
+{-11-}
+
+primIguales :: Eq a => [a] -> [a]
+primIguales [] = []
+primIguales (x:xs) = x : takeWhile (== x) xs
+
